@@ -40,6 +40,9 @@ Muốn kiểm cả repo thì dùng `4s-check`.
    có test nào hỏng khi nó hỏng. Một test tốt, không cần coverage.
 8. **`LEX`:** tên mới (biến, hàm, file, cột, topic) lệch nghĩa trong `LEXICON.md`, từ mới chưa có
    trong từ điển, từ bị cấm ở mục 5. Thay đổi chạm tiền, thời gian, đơn vị đo thì đối chiếu mục 7.
+   Diff sửa bug: nếu nó đổi nghĩa hoặc đơn vị trong `LEXICON.md` thì phải có dòng mục 6 ghi lý do
+   là bug đó; không có → phát hiện `LEX`. Nếu bug đáng lẽ phải sinh ra dòng đó mà diff không có →
+   phát hiện `LEX` (bug sẽ quay lại).
 9. **Gọn và giới hạn:** dòng không cần tồn tại (code chết, option không ai dùng, wrapper chỉ
    chuyển tiếp, interface một bản cài, dependency mới cho vài dòng); file sau thay đổi trên 200
    dòng hoặc hàm mới trên 30 dòng mà không khai `SC`; `shortcut:` mới không nêu khi nào nâng cấp.

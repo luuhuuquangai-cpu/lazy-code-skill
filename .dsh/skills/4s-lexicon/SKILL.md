@@ -32,6 +32,11 @@ Trong lúc code
      └─ tự định nghĩa được từ code/schema? → CÓ: ghi luôn, báo 1 dòng
                                             → KHÔNG: dừng, chạy `4s-interview`, rồi ghi
 
+Sửa bug
+  └─ bug này có phải vì hai người hiểu khác nhau một từ, hay một đơn vị?
+     └─ KHÔNG (code sai): sửa code, KHÔNG đụng từ điển
+     └─ CÓ: sửa mục 2 (làm rõ) hoặc mục 7 (đơn vị), rồi thêm dòng mục 6 ghi lý do là bug đó
+
 Review / kiểm repo
   └─ từ mới trong code chưa có trong LEXICON.md → phát hiện `LEX` (nên sửa)
   └─ một từ mang hai nghĩa → phát hiện `LEX` (phải sửa)
@@ -174,6 +179,13 @@ Chỉ một dòng trong từ điển chặn được bug đó.
 - Skill này **sửa được** `LEXICON.md` (đó là việc của nó). Không sửa file code khác.
 - Từ điển lệch code (code làm khác định nghĩa) → **code sai**, hoặc từ điển sai. Không được để lệch.
   Sửa cái nào cũng phải nói rõ đã sửa cái nào.
+- **Sau mỗi bug fix, một câu hỏi bắt buộc:** bug này có phải vì hai người hiểu khác nhau một từ hay
+  một đơn vị không? Không thì sửa code, không đụng từ điển — đa số bug là loại này. Có thì sửa mục
+  2 hoặc mục 7, rồi **thêm dòng mục 6 ghi lý do là chính bug đó**: đó là sợi dây chặn bug quay lại.
+- **Ai được sửa gì:** agent tự thêm **Ví dụ**, **KHÔNG phải**, **Nơi ở** để làm rõ nghĩa đã có.
+  Đổi **Nghĩa** hoặc đảo một quyết định cũ thì phải hỏi người chốt (cổng `ASK-1`), vì nghĩa
+  nghiệp vụ là của người yêu cầu, không phải của agent. Đảo quyết định = thêm dòng mục 6 mới,
+  không xoá dòng cũ.
 - Từ điển là của con người. Nghĩa lấy thẳng từ code hay schema thì agent ghi và báo một dòng.
   Nghĩa phải chọn giữa hai cách hiểu thì người chốt, ghi tên vào mục 6.
 - Người đọc từ điển không bắt buộc biết code. Câu nào chỉ dev hiểu thì câu đó viết lại.

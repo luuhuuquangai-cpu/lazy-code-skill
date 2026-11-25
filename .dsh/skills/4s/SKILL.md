@@ -74,7 +74,9 @@ fixture bị thay đổi làm hỏng.
   Xoá thắng thêm. Giữ nguyên tầng, interface, quy ước mà repo đang có.
 - Diff ngắn nhất thắng, sau khi đã biết mọi chỗ nó phải chạm. Một dòng phải ngồi giải mã thì
   không tính là ngắn.
-- Sửa bug: grep mọi caller của hàm bị sửa, rồi sửa tận gốc một lần trong code dùng chung.
+- Sửa bug: grep mọi caller của hàm bị sửa, rồi sửa tận gốc một lần trong code dùng chung. Sửa
+  xong kiểm từ điển (`4s-lexicon` mục 8): bug vì hiểu khác nghĩa hoặc khác đơn vị thì cập nhật
+  `LEXICON.md`, bug vì code sai thì không đụng.
 - Code bị di chuyển hoặc gộp giữ nguyên xử lý lỗi và validate của nó.
 - Hai cách dài bằng nhau: chọn cách đúng ở edge case (rỗng, 0, phần tử cuối, múi giờ, làm tròn).
 - Comment chỉ nói điều code không tự nói được (vì sao), một dòng.
