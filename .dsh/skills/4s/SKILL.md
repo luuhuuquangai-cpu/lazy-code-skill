@@ -41,7 +41,8 @@ Trước khi sửa, tự hỏi: **có chỗ nào mình đang phải đoán khôn
 | `ASK-3` | Không rõ phải sửa chỗ nào, có được đổi dữ liệu đã lưu không |
 
 Hỏi xong thì chốt nghĩa vào `LEXICON.md` (mục 2 và mục 6) rồi mới quay lại code. Người và agent
-dùng chung một từ điển thì lần sau không phải hỏi lại đúng câu đó.
+dùng chung một từ điển thì lần sau không phải hỏi lại đúng câu đó. Nghĩa ghi vào đó phải viết
+bằng lời đời thường, người không biết code đọc cũng hiểu (xem `4s-lexicon`).
 
 Không mơ hồ thì **không hỏi**: nói một dòng "không có điểm mơ hồ" và làm luôn. Cổng này không
 được dùng để trì hoãn việc rõ ràng. Người dùng bỏ qua câu hỏi thì vẫn làm, nhưng mở đầu câu trả

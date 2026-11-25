@@ -63,13 +63,17 @@ Mẫu phiếu hỏi:
 
 Người trả lời xong, làm đúng thứ tự này:
 
-1. Ghi nghĩa vào `LEXICON.md` mục 2, đủ 5 phần: Từ, Nghĩa, **KHÔNG phải**, Nơi ở, Chủ.
-2. Ghi quyết định vào `LEXICON.md` mục 6: ngày, từ, chốt nghĩa, chủ, lý do một dòng.
-3. Ghi xong mới quay lại code. Chưa ghi thì chưa code.
-4. Người trả lời nói "tuỳ anh": agent chọn, nhưng vẫn ghi vào mục 6 với **Chủ = agent** và lý do,
+1. Ghi nghĩa vào `LEXICON.md` mục 2, đủ 6 phần: Từ, Nghĩa, **Ví dụ**, **KHÔNG phải**, Nơi ở, Chủ.
+2. Nghĩa viết bằng lời đời thường để **người không biết code cũng hiểu** — người quản lý dự án,
+   khách hàng, người mới. Câu trả lời của họ thường đã đúng giọng đó, chép lại đừng "chuyên môn
+   hoá" lại. **Ví dụ** là phần họ vừa kể: giữ nguyên tình huống và con số thật.
+3. Ghi quyết định vào `LEXICON.md` mục 6: ngày, từ, chốt nghĩa, chủ, lý do một dòng.
+4. Ghi xong mới quay lại code. Chưa ghi thì chưa code.
+5. Người trả lời nói "tuỳ anh": agent chọn, nhưng vẫn ghi vào mục 6 với **Chủ = agent** và lý do,
    để sau này biết chỗ nào agent tự quyết.
 
-Cấu trúc file là việc của skill `4s-lexicon`. Skill này quyết định **nội dung nào** được vào.
+Cấu trúc file và chuẩn dễ hiểu là việc của skill `4s-lexicon`. Skill này quyết định **nội dung
+nào** được vào.
 
 ## 5. Không trả lời được thì sao
 

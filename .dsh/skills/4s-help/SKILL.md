@@ -25,7 +25,7 @@ Cấp giữ nguyên tới khi đổi hoặc hết session. Cổng `LEXICON.md` �
 |:---|:---|:---|
 | **4s** | `/4s` | Chế độ code: ít code mới nhất, theo bốn luật, câu trả lời nêu việc đã bỏ qua và rủi ro |
 | **4s-interview** | `/4s-interview` | Phỏng vấn yêu cầu trước khi sửa: hỏi chỗ còn mơ hồ, chốt nghĩa, ghi vào `LEXICON.md` |
-| **4s-lexicon** | `/4s-lexicon` | Tạo và sửa `LEXICON.md`, từ điển chung của người và agent |
+| **4s-lexicon** | `/4s-lexicon` | Tạo và sửa `LEXICON.md`, từ điển chung viết cho người không biết code cũng hiểu |
 | **4s-review** | `/4s-review` | Review một thay đổi theo 4S, đánh số phát hiện |
 | **4s-check** | `/4s-check` | Kiểm cả repo theo 4S, phép kiểm `C1`–`C8` |
 | **4s-debt** | `/4s-debt` | Sổ nợ: gom các comment `shortcut:` |

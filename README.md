@@ -13,7 +13,8 @@ tên khi hỏng.
 | `S4` | Số Danh | Log lỗi và `catch` luôn kèm `[module.ham]` |
 
 Giới hạn cứng: file ≤ 200 dòng, hàm ≤ 30 dòng. Mỗi repo có một `LEXICON.md` để người và
-agent dùng chung một nghĩa cho mỗi từ.
+agent dùng chung một nghĩa cho mỗi từ — viết bằng lời đời thường, người không biết code
+(quản lý, khách hàng, người mới) đọc cũng hiểu.
 
 ## Skill
 
@@ -73,6 +74,20 @@ nghĩa được ghi vào `LEXICON.md` mục 2 và mục 6, nên lần sau không
 
 Yêu cầu đã rõ thì không hỏi, làm luôn. Người dùng bỏ qua câu hỏi thì agent vẫn làm nhưng phải
 mở đầu bằng khối **Giả định** — im lặng đoán là lỗi nặng nhất.
+
+## Từ điển đọc được bởi mọi người
+
+`LEXICON.md` không phải tài liệu kỹ thuật. Nó là cuốn từ điển của **cả dự án**: người quản lý,
+khách hàng, người mới vào, và agent đều đọc cùng một bản. Vì thế mỗi mục từ viết bằng lời đời
+thường, có **Ví dụ** cụ thể và nói rõ **KHÔNG phải** cái gì.
+
+Ba câu kiểm một mục từ đã dùng được chưa:
+
+1. Người không biết code đọc, nói lại được nghĩa bằng lời của họ.
+2. Phân biệt được với từ dễ lẫn (nhờ phần **KHÔNG phải**).
+3. Đọc **Nơi ở** là mở đúng file, đúng bảng — một lần thử.
+
+Trượt câu nào thì viết lại mục đó, không viết thêm chữ.
 
 ## Chạy cùng ponytail
 
