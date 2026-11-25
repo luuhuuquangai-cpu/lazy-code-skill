@@ -24,6 +24,7 @@ Cấp giữ nguyên tới khi đổi hoặc hết session. Cổng `LEXICON.md` �
 | Skill | Lệnh | Việc |
 |:---|:---|:---|
 | **4s** | `/4s` | Chế độ code: ít code mới nhất, theo bốn luật, câu trả lời nêu việc đã bỏ qua và rủi ro |
+| **4s-interview** | `/4s-interview` | Phỏng vấn yêu cầu trước khi sửa: hỏi chỗ còn mơ hồ, chốt nghĩa, ghi vào `LEXICON.md` |
 | **4s-lexicon** | `/4s-lexicon` | Tạo và sửa `LEXICON.md`, từ điển chung của người và agent |
 | **4s-review** | `/4s-review` | Review một thay đổi theo 4S, đánh số phát hiện |
 | **4s-check** | `/4s-check` | Kiểm cả repo theo 4S, phép kiểm `C1`–`C8` |
@@ -41,8 +42,11 @@ Cấp giữ nguyên tới khi đổi hoặc hết session. Cổng `LEXICON.md` �
 | `S4` | Số Danh: log lỗi và `catch` kèm `[module.ham]` |
 | `L200` `L30` | File ≤ 200 dòng, hàm ≤ 30 dòng |
 | `LEX` | Từ điển dự án `LEXICON.md` |
+| `ASK` | Cổng hỏi lại trước khi sửa: `ASK-1` nghĩa từ, `ASK-2` ranh giới hành vi, `ASK-3` phạm vi nơi sửa |
 | `SC` | Vi phạm có khai báo bằng comment `shortcut:` |
 | `C1`–`C8` | Phép kiểm của `4s-check` |
+
+Thứ tự trước khi sửa: `LEX` (đọc từ điển) → `ASK` (hỏi chỗ mơ hồ) → ghi `LEXICON.md` → code.
 
 Tầng: `UI → Controller → Use Case → Entity`, và `Controller → Infrastructure → Entity`.
 

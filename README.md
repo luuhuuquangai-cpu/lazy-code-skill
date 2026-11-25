@@ -20,6 +20,7 @@ agent dùng chung một nghĩa cho mỗi từ.
 | Skill | Loại | Việc |
 |:---|:---|:---|
 | `4s` | chế độ, bật suốt session | Luật viết code. Cấp `lite`, `full` (mặc định), `ultra` |
+| `4s-interview` | quy trình trước khi sửa | Phỏng vấn yêu cầu: hỏi chỗ còn mơ hồ, chốt nghĩa, ghi vào `LEXICON.md` |
 | `4s-lexicon` | sửa `LEXICON.md` | Tạo và bảo trì từ điển dự án |
 | `4s-review` | báo cáo một lần | Review một thay đổi |
 | `4s-check` | báo cáo một lần | Kiểm cả repo, phép kiểm `C1`–`C8` |
@@ -62,6 +63,16 @@ Tắt trong một session: nói "stop 4s". Đổi cấp: `/4s lite`, `/4s ultra`
 1. `/4s-lexicon` để tạo `LEXICON.md`. Skill `4s` dừng mọi task cho tới khi file này có.
 2. `/4s-check` để xem repo đang lệch chuẩn ở đâu.
 3. Code bình thường khi `4s` đang bật. Trước khi merge, chạy `/4s-review`.
+
+## Hỏi lại trước khi sửa
+
+Agent không được tự đoán rồi làm. Trước mỗi task code, `4s` chạy cổng `ASK`: gặp từ hiểu hai
+kiểu (`ASK-1`), không rõ hành vi (`ASK-2`), hay không rõ sửa chỗ nào (`ASK-3`) thì dừng, chạy
+`/4s-interview` để hỏi người đưa yêu cầu bằng 2–3 lựa chọn lấy từ chính code. Chốt xong thì
+nghĩa được ghi vào `LEXICON.md` mục 2 và mục 6, nên lần sau không ai phải hỏi lại câu đó.
+
+Yêu cầu đã rõ thì không hỏi, làm luôn. Người dùng bỏ qua câu hỏi thì agent vẫn làm nhưng phải
+mở đầu bằng khối **Giả định** — im lặng đoán là lỗi nặng nhất.
 
 ## Chạy cùng ponytail
 

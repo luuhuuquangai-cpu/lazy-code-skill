@@ -17,12 +17,35 @@ vấn đề bằng ít code mới nhất. Kết thúc câu trả lời bằng ph
 
 Bật suốt session tới khi người dùng nói "stop 4s" hoặc "normal mode". Đổi cấp: `/4s lite|full|ultra`.
 
-## 0. Cổng từ điển (`LEX`)
+## 0. Hai cổng trước khi sửa (`LEX`, `ASK`)
+
+Sửa code khi chưa hiểu đúng yêu cầu là việc đắt nhất có thể làm: sai nghĩa thì phải viết lại,
+không phải sửa. Vì thế có hai cổng, chạy theo thứ tự, trước mọi task code kể cả task nhỏ.
+
+### 0.1 Cổng từ điển (`LEX`)
 
 Đọc `LEXICON.md` ở gốc repo trước mọi task, kể cả task nhỏ. Chưa có file: dừng, chạy skill
 `4s-lexicon`, rồi mới làm. Gặp từ chưa có trong từ điển: thêm vào từ điển trước, code sau.
 Một từ chỉ có một nghĩa. Đây là ngoại lệ có chủ ý với tinh thần lười: hiểu sai nghĩa là lỗi
 đắt nhất, và viết ít code không chữa được nó.
+
+### 0.2 Cổng hỏi lại (`ASK`) — không tự hành động khi còn mơ hồ
+
+Trước khi sửa, tự hỏi: **có chỗ nào mình đang phải đoán không?** Có một trong ba dấu hiệu dưới
+đây thì dừng, chạy skill `4s-interview`, hỏi người đưa yêu cầu, rồi mới code:
+
+| Mã | Dấu hiệu |
+|:---|:---|
+| `ASK-1` | Một từ có thể hiểu hai kiểu ("đồng bộ", "đơn hàng", "phiên") |
+| `ASK-2` | Không rõ hành vi: khi nào chạy, lỗi thì làm gì, ai được làm |
+| `ASK-3` | Không rõ phải sửa chỗ nào, có được đổi dữ liệu đã lưu không |
+
+Hỏi xong thì chốt nghĩa vào `LEXICON.md` (mục 2 và mục 6) rồi mới quay lại code. Người và agent
+dùng chung một từ điển thì lần sau không phải hỏi lại đúng câu đó.
+
+Không mơ hồ thì **không hỏi**: nói một dòng "không có điểm mơ hồ" và làm luôn. Cổng này không
+được dùng để trì hoãn việc rõ ràng. Người dùng bỏ qua câu hỏi thì vẫn làm, nhưng mở đầu câu trả
+lời bằng khối **Giả định** liệt kê đúng những gì đã đoán — im lặng đoán là lỗi nặng nhất.
 
 ## 1. Trước khi viết
 
@@ -36,7 +59,7 @@ trước khi tạo file mới.
 Dừng ở bậc đầu tiên giải quyết trọn vấn đề:
 
 1. Có cần tồn tại không? Không thì bỏ, nói một dòng là đã bỏ. Yêu cầu mơ hồ ("làm cho tôi X")
-   thì làm bản nhỏ nhất đủ việc chính.
+   thì qua cổng `ASK` (mục 0.2) trước, rồi mới chọn bản nhỏ nhất đủ việc chính.
 2. Repo đã có (hàm, component, service, pattern)? Dùng đúng cách code xung quanh đang dùng.
 3. Thư viện chuẩn hoặc nền tảng làm được? Dùng, trừ khi repo đã có bản riêng.
 4. Dependency đã cài làm được? Dùng. Không thêm dependency cho vài dòng code.
@@ -133,6 +156,9 @@ Ngắn, dễ hiểu với người bận. Kết thúc bằng một hai dòng:
 - **Đã bỏ qua / chưa kiểm:** việc không làm, chỗ không chạy thử được.
 - **Rủi ro:** điều người dùng phải biết, và mọi `SC` vừa thêm (file:dòng).
 
+Làm bằng giả định (người dùng bỏ qua câu hỏi `ASK`): mở đầu bằng khối **Giả định**, cuối còn
+lại một dòng `ASK` cho mỗi câu chưa có trả lời.
+
 Bug UI hoặc layout: làm theo skill `4s-ui-debug`, không kết luận từ code tĩnh.
 
 ## 9. Cấp độ
@@ -143,13 +169,15 @@ Bug UI hoặc layout: làm theo skill `4s-ui-debug`, không kết luận từ co
 | **full** | Mặc định. Các luật trên là luật cứng: vi phạm phải sửa hoặc khai `SC` |
 | **ultra** | Như full, thêm: trước khi làm, phản biện phần yêu cầu không có nhu cầu thật; không viết code vi phạm khi người dùng chưa đồng ý `SC` |
 
-Cổng từ điển (mục 0) áp dụng ở cả ba cấp. Bật cùng ponytail thì không xung đột: hai bộ chung
-tinh thần lười, riêng chuyện tách gom file thì theo 4S.
+Cổng từ điển (mục 0.1) và cổng hỏi lại (mục 0.2) áp dụng ở cả ba cấp: cấp độ đổi mức kỷ luật
+của code, không đổi việc phải hiểu đúng yêu cầu trước. Bật cùng ponytail thì không xung đột: hai
+bộ chung tinh thần lười, riêng chuyện tách gom file thì theo 4S.
 
 ## 10. Skill liên quan
 
 | Cần | Skill |
 |:---|:---|
+| Phỏng vấn yêu cầu, chốt nghĩa trước khi sửa | `4s-interview` |
 | Tạo, sửa từ điển dự án | `4s-lexicon` |
 | Review một thay đổi | `4s-review` |
 | Kiểm cả repo | `4s-check` |

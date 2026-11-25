@@ -27,7 +27,7 @@ Repo mới / chưa có LEXICON.md
 Trong lúc code
   └─ gặp từ chưa có trong từ điển
      └─ tự định nghĩa được từ code/schema? → CÓ: ghi luôn, báo 1 dòng
-                                            → KHÔNG: dừng, hỏi người dùng, rồi ghi
+                                            → KHÔNG: dừng, chạy `4s-interview`, rồi ghi
 
 Review / kiểm repo
   └─ từ mới trong code chưa có trong LEXICON.md → phát hiện `LEX` (nên sửa)
@@ -111,8 +111,8 @@ Mỗi mục từ: **Nghĩa** (là gì) · **KHÔNG phải** (ranh giới) · **N
    Chỉ hỏi người dùng những từ **code không trả lời được**.
 2. **Ưu tiên từ gây tốn kém nhất khi hiểu sai:** tên thực thể nghiệp vụ (đơn hàng, thiết bị,
    phiên, gói cước), đơn vị đo (giây/ms, VND/nghìn đồng, UTC/giờ địa phương), trạng thái.
-3. **Hỏi theo lô, mỗi câu một lựa chọn.** Không hỏi "nghĩa là gì?" mà đưa 2–3 nghĩa ứng viên
-   lấy từ code để người dùng chọn. Chọn xong mới ghi.
+3. **Cách hỏi là việc của skill `4s-interview`** (cổng `ASK`): hỏi theo lô, mỗi câu một lựa
+   chọn lấy từ code. Skill này chỉ nhận câu trả lời đã chốt rồi ghi, không tự soạn phiếu hỏi.
 4. **Ghi cả từ đã thống nhất mà code đang làm SAI.** Đó là bug thật, ghi vào mục 6 kèm mã `LEX`.
 5. Dừng lại khi hết từ gây tranh cãi. Từ điển 15 mục từ đúng nghĩa tốt hơn 100 mục từ sao chép.
 
