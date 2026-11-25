@@ -17,10 +17,10 @@ vấn đề bằng ít code mới nhất. Kết thúc câu trả lời bằng ph
 
 Bật suốt session tới khi người dùng nói "stop 4s" hoặc "normal mode". Đổi cấp: `/4s lite|full|ultra`.
 
-## 0. Hai cổng trước khi sửa (`LEX`, `ASK`)
+## 0. Ba cổng trước khi sửa (`LEX`, `ASK`, `FIX`)
 
-Sửa code khi chưa hiểu đúng yêu cầu là việc đắt nhất có thể làm: sai nghĩa thì phải viết lại,
-không phải sửa. Vì thế có hai cổng, chạy theo thứ tự, trước mọi task code kể cả task nhỏ.
+Sửa code khi chưa hiểu đúng yêu cầu là việc đắt nhất: sai nghĩa thì phải viết lại, không phải
+sửa. Vì thế có ba cổng, chạy theo thứ tự, trước mọi task code.
 
 ### 0.1 Cổng từ điển (`LEX`)
 
@@ -40,13 +40,23 @@ Trước khi sửa, tự hỏi: **có chỗ nào mình đang phải đoán khôn
 | `ASK-2` | Không rõ hành vi: khi nào chạy, lỗi thì làm gì, ai được làm |
 | `ASK-3` | Không rõ phải sửa chỗ nào, có được đổi dữ liệu đã lưu không |
 
-Hỏi xong thì chốt nghĩa vào `LEXICON.md` (mục 2 và mục 6) rồi mới quay lại code. Người và agent
-dùng chung một từ điển thì lần sau không phải hỏi lại đúng câu đó. Nghĩa ghi vào đó phải viết
-bằng lời đời thường, người không biết code đọc cũng hiểu (xem `4s-lexicon`).
+Hỏi xong thì chốt nghĩa vào `LEXICON.md` (mục 2 và mục 6) rồi mới code; nghĩa viết bằng lời đời
+thường để người không biết code cũng hiểu (xem `4s-lexicon`). Lần sau không phải hỏi lại câu đó.
 
-Không mơ hồ thì **không hỏi**: nói một dòng "không có điểm mơ hồ" và làm luôn. Cổng này không
-được dùng để trì hoãn việc rõ ràng. Người dùng bỏ qua câu hỏi thì vẫn làm, nhưng mở đầu câu trả
-lời bằng khối **Giả định** liệt kê đúng những gì đã đoán — im lặng đoán là lỗi nặng nhất.
+Việc đã rõ thì làm luôn, không cần tuyên bố gì. Nhưng **đã hỏi mà chưa có câu trả lời thì không
+sửa gì**: không tự tuyên bố "không có điểm mơ hồ" để đi tiếp, không nêu giả định rồi vẫn sửa.
+Người dùng nói rõ "làm đi, đừng hỏi" thì đó là duyệt.
+
+### 0.3 Báo lỗi: chẩn đoán trước, sửa sau (`FIX`)
+
+Người dùng báo lỗi thì mặc định là **chưa được sửa**. Lượt đó chỉ đọc code và trình bày:
+
+1. **Nguyên nhân** — chỗ nào gây lỗi, kèm `file:dòng`.
+2. **Đề xuất sửa** — sửa gì, ở đâu, ảnh hưởng gì khác (caller, dữ liệu cũ).
+3. **Từ điển** — bug này có phải vì hiểu khác nghĩa hay khác đơn vị không (`4s-lexicon` mục 8).
+4. **Chờ duyệt** — sửa code và `LEXICON.md` chỉ sau khi người dùng duyệt.
+
+Trình bày xong là dừng: không tiện tay sửa luôn, không thông báo việc đã tự quyết như thể đã xong.
 
 ## 1. Trước khi viết
 
@@ -74,9 +84,9 @@ fixture bị thay đổi làm hỏng.
   Xoá thắng thêm. Giữ nguyên tầng, interface, quy ước mà repo đang có.
 - Diff ngắn nhất thắng, sau khi đã biết mọi chỗ nó phải chạm. Một dòng phải ngồi giải mã thì
   không tính là ngắn.
-- Sửa bug: grep mọi caller của hàm bị sửa, rồi sửa tận gốc một lần trong code dùng chung. Sửa
-  xong kiểm từ điển (`4s-lexicon` mục 8): bug vì hiểu khác nghĩa hoặc khác đơn vị thì cập nhật
-  `LEXICON.md`, bug vì code sai thì không đụng.
+- Sửa bug: **chờ duyệt trước** (mục 0.3). Duyệt rồi thì grep mọi caller của hàm bị sửa, sửa tận
+  gốc một lần trong code dùng chung, và kiểm từ điển (`4s-lexicon` mục 8): bug vì hiểu khác nghĩa
+  hoặc khác đơn vị thì cập nhật `LEXICON.md`, bug vì code sai thì không đụng.
 - Code bị di chuyển hoặc gộp giữ nguyên xử lý lỗi và validate của nó.
 - Hai cách dài bằng nhau: chọn cách đúng ở edge case (rỗng, 0, phần tử cuối, múi giờ, làm tròn).
 - Comment chỉ nói điều code không tự nói được (vì sao), một dòng.
@@ -159,8 +169,7 @@ Ngắn, dễ hiểu với người bận. Kết thúc bằng một hai dòng:
 - **Đã bỏ qua / chưa kiểm:** việc không làm, chỗ không chạy thử được.
 - **Rủi ro:** điều người dùng phải biết, và mọi `SC` vừa thêm (file:dòng).
 
-Làm bằng giả định (người dùng bỏ qua câu hỏi `ASK`): mở đầu bằng khối **Giả định**, cuối còn
-lại một dòng `ASK` cho mỗi câu chưa có trả lời.
+Lượt báo lỗi: trình bày chẩn đoán và đề xuất, không sửa gì (mục 0.3).
 
 Bug UI hoặc layout: làm theo skill `4s-ui-debug`, không kết luận từ code tĩnh.
 

@@ -72,8 +72,13 @@ kiểu (`ASK-1`), không rõ hành vi (`ASK-2`), hay không rõ sửa chỗ nào
 `/4s-interview` để hỏi người đưa yêu cầu bằng 2–3 lựa chọn lấy từ chính code. Chốt xong thì
 nghĩa được ghi vào `LEXICON.md` mục 2 và mục 6, nên lần sau không ai phải hỏi lại câu đó.
 
-Yêu cầu đã rõ thì không hỏi, làm luôn. Người dùng bỏ qua câu hỏi thì agent vẫn làm nhưng phải
-mở đầu bằng khối **Giả định** — im lặng đoán là lỗi nặng nhất.
+Đã hỏi mà chưa có câu trả lời thì **không sửa gì**. Không có đường "tự nêu giả định rồi vẫn làm".
+
+## Báo lỗi thì chưa được sửa
+
+Cổng `FIX`: khi bạn báo một lỗi, lượt đó agent chỉ đọc code và trình bày bốn thứ — nguyên nhân
+(kèm `file:dòng`), đề xuất sửa, ảnh hưởng tới chỗ khác, và từ điển có phải sửa theo không. Rồi
+dừng, chờ bạn duyệt. Không tự sửa code, không tự sửa `LEXICON.md`, không thông báo như thể đã xong.
 
 ## Từ điển đọc được bởi mọi người
 

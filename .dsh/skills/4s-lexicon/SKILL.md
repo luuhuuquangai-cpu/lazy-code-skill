@@ -183,9 +183,9 @@ Chỉ một dòng trong từ điển chặn được bug đó.
   một đơn vị không? Không thì sửa code, không đụng từ điển — đa số bug là loại này. Có thì sửa mục
   2 hoặc mục 7, rồi **thêm dòng mục 6 ghi lý do là chính bug đó**: đó là sợi dây chặn bug quay lại.
 - **Ai được sửa gì:** agent tự thêm **Ví dụ**, **KHÔNG phải**, **Nơi ở** để làm rõ nghĩa đã có.
-  Đổi **Nghĩa** hoặc đảo một quyết định cũ thì phải hỏi người chốt (cổng `ASK-1`), vì nghĩa
-  nghiệp vụ là của người yêu cầu, không phải của agent. Đảo quyết định = thêm dòng mục 6 mới,
-  không xoá dòng cũ.
+  Đổi **Nghĩa** hoặc đảo quyết định cũ thì phải hỏi người chốt (`ASK-1`): nghĩa nghiệp vụ là của
+  người yêu cầu. Đảo quyết định = thêm dòng mục 6 mới, không xoá dòng cũ. Người dùng **báo lỗi**
+  thì chờ duyệt trước khi sửa từ điển (`FIX`, `4s` mục 0.3).
 - Từ điển là của con người. Nghĩa lấy thẳng từ code hay schema thì agent ghi và báo một dòng.
   Nghĩa phải chọn giữa hai cách hiểu thì người chốt, ghi tên vào mục 6.
 - Người đọc từ điển không bắt buộc biết code. Câu nào chỉ dev hiểu thì câu đó viết lại.

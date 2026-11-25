@@ -43,10 +43,12 @@ Cấp giữ nguyên tới khi đổi hoặc hết session. Cổng `LEXICON.md` �
 | `L200` `L30` | File ≤ 200 dòng, hàm ≤ 30 dòng |
 | `LEX` | Từ điển dự án `LEXICON.md` |
 | `ASK` | Cổng hỏi lại trước khi sửa: `ASK-1` nghĩa từ, `ASK-2` ranh giới hành vi, `ASK-3` phạm vi nơi sửa |
+| `FIX` | Cổng báo lỗi: chỉ chẩn đoán + đề xuất, chờ duyệt rồi mới sửa code hoặc `LEXICON.md` |
 | `SC` | Vi phạm có khai báo bằng comment `shortcut:` |
 | `C1`–`C8` | Phép kiểm của `4s-check` |
 
 Thứ tự trước khi sửa: `LEX` (đọc từ điển) → `ASK` (hỏi chỗ mơ hồ) → ghi `LEXICON.md` → code.
+Người dùng báo lỗi: `FIX` (chẩn đoán) → chờ duyệt → sửa.
 
 Tầng: `UI → Controller → Use Case → Entity`, và `Controller → Infrastructure → Entity`.
 

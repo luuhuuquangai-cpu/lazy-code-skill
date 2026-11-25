@@ -41,7 +41,8 @@ Một câu hỏi thuộc đúng một loại. Câu trả lời phải ghi đư�
 - **Theo lô, tối đa 5 câu một lần.** Hỏi 12 câu một lượt thì người ta trả lời qua loa.
 - **Mỗi câu là một lựa chọn**, không hỏi mở "anh muốn gì". Có 2–3 phương án đánh số, ghi rõ
   phương án đề xuất và vì sao.
-- **Không hỏi lại câu đã hỏi.** Câu người dùng bỏ qua thì thành giả định (mục 5), không hỏi lại.
+- **Không hỏi lại câu đã hỏi.** Câu người dùng bỏ qua thì để chờ đó, không hỏi lại và không làm
+  tiếp (mục 5).
 - **Xếp theo giá trị:** câu nào sai phải viết lại cả feature thì hỏi trước; câu nào sai chỉ đổi
   một dòng thì để sau.
 - Trả lời được bằng một chữ là câu hỏi tốt. "A hay B?" tốt hơn "anh thấy thế nào?".
@@ -75,16 +76,19 @@ Người trả lời xong, làm đúng thứ tự này:
 Cấu trúc file và chuẩn dễ hiểu là việc của skill `4s-lexicon`. Skill này quyết định **nội dung
 nào** được vào.
 
-## 5. Không trả lời được thì sao
+## 5. Chưa có câu trả lời thì dừng
 
-Người dùng bỏ qua câu hỏi, hoặc nói "làm đi, đừng hỏi":
+Đã hỏi mà chưa ai trả lời:
 
-- Vẫn làm, nhưng mở đầu câu trả lời bằng khối **Giả định** liệt kê đúng những gì đã đoán.
+- **Không sửa gì.** Không code, không sửa `LEXICON.md`, không nêu giả định rồi vẫn làm. Dừng và
+  chờ. Đây là luật cứng, không phải lời khuyên.
+- Câu chưa có trả lời thì để ở cuối câu trả lời dưới nhãn `ASK`, một dòng mỗi câu.
+- Người dùng nói rõ "làm đi, đừng hỏi" thì đó **là duyệt** cho đúng task đó: được làm, nhưng nêu
+  ngay một dòng đang hiểu theo nghĩa nào, để họ chặn kịp nếu sai.
 - Không ghi giả định vào `LEXICON.md` mục 6 — chưa ai chốt. Nếu giả định đó chạm vào luật 4S thì
   khai bằng comment `shortcut:`.
-- Câu chưa có trả lời thì để ở cuối câu trả lời dưới nhãn `ASK`, một dòng mỗi câu.
 
-Im lặng đoán rồi làm là lỗi nặng nhất của skill này.
+Tự tuyên bố "không có điểm mơ hồ" rồi đi tiếp là lỗi nặng nhất của skill này.
 
 ## 6. Ranh giới
 
@@ -92,5 +96,5 @@ Im lặng đoán rồi làm là lỗi nặng nhất của skill này.
 - Không biến phỏng vấn thành biên bản dài: trả lời xong thì phiếu hỏi biến mất, chỉ còn dòng
   trong `LEXICON.md`.
 - Hỏi người, không tự hỏi rồi tự trả lời: tự trả lời được thì đã không cần hỏi.
-- Yêu cầu đã rõ, không có điểm mơ hồ: nói một dòng "không có điểm mơ hồ" rồi làm luôn. Cổng hỏi
-  lại không được dùng để trì hoãn việc rõ ràng.
+- Yêu cầu đã rõ, không có điểm mơ hồ: làm luôn, không cần tuyên bố. Nhưng đã hỏi mà chưa có câu
+  trả lời thì dừng, không sửa gì (mục 5).
