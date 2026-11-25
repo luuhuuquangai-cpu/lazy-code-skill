@@ -1,8 +1,9 @@
-# 4S — bộ skill chuẩn code cho agent
+# Lazy Code Skill — bộ skill 4S cho agent
 
-4S là chuẩn code cho người và agent trong team, kế thừa tinh thần
-[ponytail](https://github.com/DietrichGebert/ponytail): thay đổi nhỏ nhất mà vẫn giải quyết trọn
-vấn đề. Phần code còn lại phải tìm được, sửa được, và tự khai tên khi hỏng.
+Bộ skill này gói chuẩn **4S** lại thành lệnh dùng được: 4S là chuẩn code cho người và agent
+trong team, kế thừa tinh thần [ponytail](https://github.com/DietrichGebert/ponytail): thay đổi
+nhỏ nhất mà vẫn giải quyết trọn vấn đề. Phần code còn lại phải tìm được, sửa được, và tự khai
+tên khi hỏng.
 
 | Mã | Luật | Ý nghĩa |
 |:---|:---|:---|
