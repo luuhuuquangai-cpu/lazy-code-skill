@@ -67,3 +67,7 @@ Tắt trong một session: nói "stop 4s". Đổi cấp: `/4s lite`, `/4s ultra`
 Không cần cài ponytail. `4s` đã chứa thang chọn giải pháp, phần trả lời kết thúc bằng
 "đã bỏ qua / rủi ro", và luật "không có trường hợp cụ thể thì không phải phát hiện".
 Bật cả hai cũng không xung đột. Riêng chuyện tách hay gom file thì theo 4S.
+
+## Giấy phép
+
+MIT. Xem [LICENSE](LICENSE).
