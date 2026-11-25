@@ -90,7 +90,7 @@ mục, bảng với từ điển. Danh từ thiếu định nghĩa → WARN. M�
 **`C8` `SC` nợ không có điều kiện nâng cấp → WARN**
 
 ```
-git grep -nE '(#|//|/[*]) ?(shortcut|ponytail):' -- ':!*.md'
+git grep -nE '(#|//|/[*]|--) ?(shortcut|ponytail):' -- ':!*.md'
 ```
 
 Dòng nào không nêu "khi nào phải nâng cấp" → WARN. Danh sách đầy đủ: skill `4s-debt`.

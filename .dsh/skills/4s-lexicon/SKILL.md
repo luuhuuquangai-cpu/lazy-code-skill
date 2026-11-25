@@ -136,4 +136,5 @@ Chỉ một dòng trong từ điển chặn được bug đó.
 - Skill này **sửa được** `LEXICON.md` (đó là việc của nó). Không sửa file code khác.
 - Từ điển lệch code (code làm khác định nghĩa) → **code sai**, hoặc từ điển sai. Không được để lệch.
   Sửa cái nào cũng phải nói rõ đã sửa cái nào.
-- Từ điển là của con người. Agent đề xuất, người chốt. Mục 6 ghi tên người chốt.
+- Từ điển là của con người. Nghĩa lấy thẳng từ code hay schema thì agent ghi và báo một dòng.
+  Nghĩa phải chọn giữa hai cách hiểu thì người chốt, ghi tên vào mục 6.

@@ -26,7 +26,7 @@ agent dùng chung một nghĩa cho mỗi từ.
 | `4s-ui-debug` | quy trình | Bug UI: trình duyệt thật trước, code sau |
 | `4s-help` | thẻ tra cứu | Cấp độ, lệnh, mã luật |
 
-Mỗi skill nằm ở `.dsh/skills/<tên>/SKILL.md`. Mỗi file làm một việc và dài dưới 200 dòng.
+Mỗi skill nằm ở `.dsh/skills/<tên>/SKILL.md`. Mỗi file làm một việc và không quá 200 dòng.
 
 ## Cài đặt
 

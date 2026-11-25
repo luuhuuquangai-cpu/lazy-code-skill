@@ -42,7 +42,7 @@ Muốn kiểm cả repo thì dùng `4s-check`.
    trong từ điển, từ bị cấm ở mục 5. Thay đổi chạm tiền, thời gian, đơn vị đo thì đối chiếu mục 7.
 9. **Gọn và giới hạn:** dòng không cần tồn tại (code chết, option không ai dùng, wrapper chỉ
    chuyển tiếp, interface một bản cài, dependency mới cho vài dòng); file sau thay đổi trên 200
-   dòng hoặc hàm mới trên 30 dòng mà không khai `SC`.
+   dòng hoặc hàm mới trên 30 dòng mà không khai `SC`; `shortcut:` mới không nêu khi nào nâng cấp.
 
 ## 3. Kiểm trước khi báo
 
@@ -63,8 +63,10 @@ Tiếng Việt đơn giản, câu ngắn. Giải thích thuật ngữ ở lần 
 Mở đầu: `Thay đổi này làm gì:` hai ba câu, kèm đang review cái gì (vd `git diff main...HEAD`).
 
 Rồi ba nhóm, bỏ nhóm rỗng:
-- **Phải sửa:** bug, bảo mật, mất dữ liệu, `S4` nuốt lỗi, `S3` import ngược tầng, `S2` bản sao luật.
-- **Nên sửa:** logic rủi ro không có test, `S1`, `LEX`, vượt giới hạn không khai `SC`, code thừa.
+- **Phải sửa:** bug, bảo mật, mất dữ liệu, `S4`, `S3`, `S2` bản sao luật, `S1`, `LEX` một từ hai
+  nghĩa.
+- **Nên sửa:** logic rủi ro không có test, `S2` một việc rải nhiều nơi, `LEX` từ chưa định nghĩa,
+  vượt giới hạn không khai `SC`, `shortcut:` thiếu điều kiện nâng cấp, code thừa.
 - **Nhỏ:** cách viết ngắn hơn.
 
 Đánh số xuyên suốt. Mỗi phát hiện đủ bốn phần, mỗi phần một hai câu:
