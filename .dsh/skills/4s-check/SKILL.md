@@ -86,8 +86,9 @@ nhiều bước; bảng tra cứu dài là bình thường. Ghi "đã đọc N/M
 
 Không có `LEXICON.md` → FAIL. Có rồi: so 10 danh từ xuất hiện nhiều nhất trong tên file, thư
 mục, bảng với từ điển. Danh từ thiếu định nghĩa → WARN. Một từ có hai nghĩa → FAIL.
-Mục từ thiếu **Ví dụ** hoặc **KHÔNG phải** → WARN. Nghĩa viết tắt hoặc dùng từ kỹ thuật chưa
-giải thích, người không biết code không đọc hiểu → WARN (xem `4s-lexicon` mục 3, 4).
+Mục từ thiếu bất kỳ phần nào trong **7 phần** (Từ, Nghĩa, Ví dụ, KHÔNG phải, Tránh dùng, Nơi ở,
+Chủ) → WARN. Nghĩa viết tắt hoặc dùng từ kỹ thuật chưa giải thích, người không biết code không
+đọc hiểu → WARN (xem `4s-lexicon` mục 2, 3, 4).
 
 **`C8` `SC` nợ không có điều kiện nâng cấp → WARN**
 

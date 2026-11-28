@@ -1,4 +1,4 @@
-﻿---
+---
 name: 4s-lexicon
 description: >
   Tạo và bảo trì LEXICON.md ở gốc repo: từ điển chung viết bằng lời đời thường để người không
@@ -102,11 +102,11 @@ repo, xoá dòng ví dụ khi đã điền thật. Mẫu để riêng file để
 ## 6. Cách điền lần đầu
 
 1. **Đọc trước, hỏi sau.** Lấy nghĩa từ code đang chạy, schema, README, tên bảng, tên topic.
-   Chỉ hỏi người dùng những từ **code không trả lời được**.
+   Cách hỏi là việc của `4s-interview` (mục 3: không hỏi điều code đã trả lời được).
 2. **Ưu tiên từ gây tốn kém nhất khi hiểu sai:** tên thực thể nghiệp vụ (đơn hàng, thiết bị,
    phiên, gói cước), đơn vị đo (giây/ms, VND/nghìn đồng, UTC/giờ địa phương), trạng thái.
-3. **Cách hỏi là việc của skill `4s-interview`** (cổng `ASK`): hỏi theo lô, mỗi câu một lựa
-   chọn lấy từ code. Skill này chỉ nhận câu trả lời đã chốt rồi ghi, không tự soạn phiếu hỏi.
+3. **Cách hỏi là việc của skill `4s-interview`** (cổng `ASK`): hỏi theo vòng và theo cây quyết
+   định. Skill này chỉ nhận câu trả lời đã chốt rồi ghi, không tự soạn phiếu hỏi.
 4. **Ghi cả từ đã thống nhất mà code đang làm SAI.** Đó là bug thật, ghi vào mục 6 kèm mã `LEX`.
 5. Dừng lại khi hết từ gây tranh cãi. Từ điển 15 mục từ đúng nghĩa tốt hơn 100 mục từ sao chép.
 
@@ -135,7 +135,7 @@ Chỉ một dòng trong từ điển chặn được bug đó.
   2 hoặc mục 7, rồi **thêm dòng mục 6 ghi lý do là chính bug đó**: đó là sợi dây chặn bug quay lại.
 - **Ai được sửa gì:** agent tự thêm **Ví dụ**, **KHÔNG phải**, **Nơi ở** để làm rõ nghĩa đã có.
   Đổi **Nghĩa** hoặc đảo quyết định cũ thì phải hỏi người chốt (`ASK-1`): nghĩa nghiệp vụ là của
-  người yêu cầu. Đảo quyết định = thêm dòng mục 6 mới, không xoá dòng cũ. Người dùng **báo lỗi**
+  người dùng. Đảo quyết định = thêm dòng mục 6 mới, không xoá dòng cũ. Người dùng **báo lỗi**
   thì chờ duyệt trước khi sửa từ điển (`FIX`, `4s` mục 0.3).
 - Từ điển là của con người. Nghĩa lấy thẳng từ code hay schema thì agent ghi và báo một dòng.
   Nghĩa phải chọn giữa hai cách hiểu thì người chốt, ghi tên vào mục 6.

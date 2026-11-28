@@ -64,8 +64,7 @@ Mục 6 là lịch sử. Không sửa dòng cũ, chỉ thêm dòng mới.
 | Thời gian | <lưu UTC hay giờ địa phương, định dạng, ai đổi múi giờ> |
 | Tiền | <đơn vị nhỏ nhất, làm tròn kiểu gì> |
 | Đại lượng đo | <đơn vị SI, độ chính xác> |
-
-## 8. Chưa rõ (chờ chốt)
-| Từ / câu hỏi | Ai biết | Đang chặn việc gì |
-|:---|:---|:---|
 ```
+
+File này **chỉ chứa định nghĩa**. Việc đang làm dở, câu hỏi chờ chốt, bản đồ quyết định: ghi ở
+`KE_HOACH.md` cùng cấp, không ghi vào đây.

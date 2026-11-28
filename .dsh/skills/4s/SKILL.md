@@ -2,16 +2,16 @@
 name: 4s
 description: >
   Chế độ code 4S, bật suốt session: Sạch Việc (1 file 1 việc), Sát Nơi (1 việc 1 chỗ),
-  Suôn Dòng (dữ liệu đi 1 chiều), Số Danh (log lỗi kèm tên module), cộng tinh thần ponytail:
-  thay đổi nhỏ nhất giải quyết trọn vấn đề, câu trả lời đọc một lần là hiểu. Dùng cho mọi task
-  code: viết mới, sửa bug, refactor, chọn thư viện. Cấp: lite, full (mặc định), ultra.
+  Suôn Dòng (dữ liệu đi 1 chiều), Số Danh (log lỗi kèm tên module), cộng tinh thần lười có kỷ
+  luật: thay đổi nhỏ nhất giải quyết trọn vấn đề, câu trả lời đọc một lần là hiểu. Dùng cho mọi
+  task code: viết mới, sửa bug, refactor, chọn thư viện. Cấp: lite, full (mặc định), ultra.
   Triggers: "4s", "/4s", "chuẩn 4s", "sạch việc", "sát nơi", "suôn dòng", "số danh",
   "viết ít code", "one job", "simplest solution".
 ---
 
 # 4S
 
-Bạn là senior dev lười có kỷ luật. Code tốt nhất là code không phải viết. Code còn lại phải
+Agent là senior dev lười có kỷ luật. Code tốt nhất là code không phải viết. Code còn lại phải
 nằm đúng một chỗ, cho dữ liệu chạy một chiều, và khi hỏng thì tự khai tên. Giải quyết trọn
 vấn đề bằng ít code mới nhất. Kết thúc câu trả lời bằng phần "Đã bỏ qua / rủi ro" (mục 8).
 
@@ -31,24 +31,18 @@ chữa được nó.
 ### 0.2 Cổng hỏi lại (`ASK`) — không tự hành động khi còn mơ hồ
 
 Trước khi sửa, tự hỏi: **có chỗ nào mình đang phải đoán không?** Có một trong ba dấu hiệu dưới
-đây thì dừng, chạy skill `4s-interview`, hỏi người đưa yêu cầu, rồi mới code:
+đây thì dừng, chạy `4s-interview`, hỏi người dùng, rồi mới code:
 
-| Mã | Dấu hiệu |
-|:---|:---|
-| `ASK-1` | Một từ có thể hiểu hai kiểu ("đồng bộ", "đơn hàng", "phiên") |
-| `ASK-2` | Không rõ hành vi: khi nào chạy, lỗi thì làm gì, ai được làm |
-| `ASK-3` | Không rõ phải sửa chỗ nào, có được đổi dữ liệu đã lưu không |
+- `ASK-1` một từ có thể hiểu hai kiểu ("đồng bộ", "đơn hàng", "phiên")
+- `ASK-2` không rõ hành vi: khi nào chạy, lỗi thì làm gì, ai được làm
+- `ASK-3` không rõ phải sửa chỗ nào, có được đổi dữ liệu đã lưu không
 
-Hỏi xong thì chốt nghĩa vào `LEXICON.md` (mục 2 và mục 6) rồi mới code; nghĩa viết bằng lời đời
-thường để người không biết code cũng hiểu (xem `4s-lexicon`). Lần sau không phải hỏi lại câu đó.
+Hỏi dồn một chỗ, trước khi code. Đang code mà thấy cần hỏi thì dừng, quay lại hỏi cho hết rồi mới
+code tiếp; ngoại lệ là phát hiện điều mới **làm đổi hẳn yêu cầu**. Chưa có câu trả lời thì không
+sửa gì. Ba thứ này là bản gốc ở `4s-flow` mục 2 và `4s-interview` mục 1, 8.
 
-Việc đã rõ thì làm luôn, không cần tuyên bố gì. Nhưng **đã hỏi mà chưa có câu trả lời thì không
-sửa gì**: không tự tuyên bố "không có điểm mơ hồ" để đi tiếp, không nêu giả định rồi vẫn sửa.
-Người dùng nói rõ "làm đi, đừng hỏi" thì đó là duyệt.
-
-**Hỏi dồn một chỗ:** mọi câu hỏi thuộc cổng này. Vào lúc code là hết hỏi. Đang code mà thấy cần
-hỏi thì dừng, quay lại hỏi cho hết rồi mới code tiếp — câu đến muộn là một lần sửa lại code vừa
-viết. Chi tiết ở `4s-flow` mục 2 và `4s-interview` mục 1.
+Chốt nghĩa xong mới code (`4s-flow` bước 2). Nghĩa ghi bằng lời đời thường để người không biết
+code cũng hiểu (`4s-lexicon`).
 
 ### 0.3 Báo lỗi: chẩn đoán trước, sửa sau (`FIX`)
 
@@ -87,8 +81,7 @@ fixture bị thay đổi làm hỏng.
 - Diff ngắn nhất thắng, sau khi đã biết mọi chỗ nó phải chạm. Một dòng phải ngồi giải mã thì
   không tính là ngắn.
 - Sửa bug: **chờ duyệt trước** (mục 0.3). Duyệt rồi thì grep mọi caller của hàm bị sửa, sửa tận
-  gốc một lần trong code dùng chung, và kiểm từ điển (`4s-lexicon` mục 8): bug vì hiểu khác nghĩa
-  hoặc khác đơn vị thì cập nhật `LEXICON.md`, bug vì code sai thì không đụng.
+  gốc một lần trong code dùng chung, rồi kiểm từ điển theo `4s-lexicon` mục 8.
 - Code bị di chuyển hoặc gộp giữ nguyên xử lý lỗi và validate của nó.
 - Hai cách dài bằng nhau: chọn cách đúng ở edge case (rỗng, 0, phần tử cuối, múi giờ, làm tròn).
 - Comment chỉ nói điều code không tự nói được (vì sao), một dòng.

@@ -1,9 +1,8 @@
 # Lazy Code Skill — bộ skill 4S cho agent
 
 Bộ skill này gói chuẩn **4S** lại thành lệnh dùng được: 4S là chuẩn code cho người và agent
-trong team, kế thừa tinh thần [ponytail](https://github.com/DietrichGebert/ponytail): thay đổi
-nhỏ nhất mà vẫn giải quyết trọn vấn đề. Phần code còn lại phải tìm được, sửa được, và tự khai
-tên khi hỏng.
+trong team. Thay đổi nhỏ nhất mà vẫn giải quyết trọn vấn đề. Phần code còn lại phải tìm được,
+sửa được, và tự khai tên khi hỏng.
 
 | Mã | Luật | Ý nghĩa |
 |:---|:---|:---|
@@ -69,9 +68,8 @@ Tắt trong một session: nói "stop 4s". Đổi cấp: `/4s lite`, `/4s ultra`
 ## Hỏi lại trước khi sửa
 
 Agent không được tự đoán rồi làm. Trước mỗi task code, `4s` chạy cổng `ASK`: gặp từ hiểu hai
-kiểu (`ASK-1`), không rõ hành vi (`ASK-2`), hay không rõ sửa chỗ nào (`ASK-3`) thì dừng, chạy
-`/4s-interview` để hỏi bạn bằng 2–3 lựa chọn lấy từ chính code, mỗi câu kèm sẵn đề xuất để bạn
-gõ "ừ" là xong. Chốt xong thì nghĩa được ghi vào `LEXICON.md` mục 2 và mục 6.
+kiểu, không rõ hành vi, hay không rõ sửa chỗ nào thì dừng và chạy `/4s-interview` để hỏi bạn
+bằng 2–3 lựa chọn lấy từ chính code, mỗi câu kèm sẵn đề xuất để bạn gõ "ừ" là xong.
 
 Đã hỏi mà chưa có câu trả lời thì **không sửa gì**. Không có đường "tự nêu giả định rồi vẫn làm".
 
@@ -83,38 +81,23 @@ gõ "ừ" là xong. Chốt xong thì nghĩa được ghi vào `LEXICON.md` mục
 1. HỎI  →  2. CHỐT  →  3. LÀM  →  4. KIỂM  →  5. GHI LẠI
 ```
 
-**Hỏi dồn một chỗ:** mọi câu hỏi thuộc bước 1. Vào bước 3 là hết hỏi. Đang code mà thấy cần hỏi
-thì dừng, quay lại hỏi cho hết — mỗi câu đến muộn là một lần sửa lại code vừa viết.
-
-**Kỷ luật context:** giữ bước 1→3 trong một mạch (cái "vì sao" không đọc lại từ diff được). Ở
-ranh giới bước có năm lựa chọn, xét theo thứ tự: đi tiếp → xoá context → bàn giao → giao agent
-phụ → nén context. Nén là **cuối bảng**, không phải cái chọn đầu tiên.
+Hai luật đáng nhớ: **hỏi dồn một chỗ** (mọi câu hỏi thuộc bước 1, đang code mà cần hỏi thì quay
+lại hỏi cho hết) và **kỷ luật context** (giữ bước 1→3 trong một mạch; ở ranh giới bước có năm
+lựa chọn xét theo thứ tự, nén context là cuối bảng). Chi tiết ở `/4s-flow`.
 
 ## Báo lỗi thì chưa được sửa
 
-Cổng `FIX`: khi bạn báo một lỗi, lượt đó agent chỉ đọc code và trình bày bốn thứ — nguyên nhân
-(kèm `file:dòng`), đề xuất sửa, ảnh hưởng tới chỗ khác, và từ điển có phải sửa theo không. Rồi
-dừng, chờ bạn duyệt. Không tự sửa code, không tự sửa `LEXICON.md`, không thông báo như thể đã xong.
+Cổng `FIX`: khi bạn báo một lỗi, lượt đó agent chỉ chẩn đoán và trình bày bốn thứ — nguyên nhân,
+đề xuất sửa, ảnh hưởng tới chỗ khác, và từ điển có phải sửa theo không. Rồi dừng, chờ bạn duyệt.
+Áp dụng cho cả `/4s-ui-debug`.
 
 ## Từ điển đọc được bởi mọi người
 
-`LEXICON.md` không phải tài liệu kỹ thuật. Nó là cuốn từ điển của **cả dự án**: người quản lý,
-khách hàng, người mới vào, và agent đều đọc cùng một bản. Vì thế mỗi mục từ viết bằng lời đời
-thường, có **Ví dụ** cụ thể và nói rõ **KHÔNG phải** cái gì.
+`LEXICON.md` là cuốn từ điển của **cả dự án**: người quản lý, khách hàng, người mới vào, và agent
+đều đọc cùng một bản. Mỗi mục từ có 7 phần, viết bằng lời đời thường, có **Ví dụ** cụ thể và nói
+rõ **KHÔNG phải** cái gì. Luật và mẫu ở `/4s-lexicon`.
 
-Ba câu kiểm một mục từ đã dùng được chưa:
-
-1. Người không biết code đọc, nói lại được nghĩa bằng lời của họ.
-2. Phân biệt được với từ dễ lẫn (nhờ phần **KHÔNG phải**).
-3. Đọc **Nơi ở** là mở đúng file, đúng bảng — một lần thử.
-
-Trượt câu nào thì viết lại mục đó, không viết thêm chữ.
-
-## Chạy cùng ponytail
-
-Không cần cài ponytail. `4s` đã chứa thang chọn giải pháp, phần trả lời kết thúc bằng
-"đã bỏ qua / rủi ro", và luật "không có trường hợp cụ thể thì không phải phát hiện".
-Bật cả hai cũng không xung đột. Riêng chuyện tách hay gom file thì theo 4S.
+Việc đang làm dở và câu hỏi chờ chốt ghi ở `KE_HOACH.md`, **không** ghi vào từ điển.
 
 ## Giấy phép
 
