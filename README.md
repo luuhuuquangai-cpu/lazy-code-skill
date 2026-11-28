@@ -21,7 +21,8 @@ agent dùng chung một nghĩa cho mỗi từ — viết bằng lời đời th�
 | Skill | Loại | Việc |
 |:---|:---|:---|
 | `4s` | chế độ, bật suốt session | Luật viết code. Cấp `lite`, `full` (mặc định), `ultra` |
-| `4s-interview` | quy trình trước khi sửa | Phỏng vấn yêu cầu: hỏi chỗ còn mơ hồ, chốt nghĩa, ghi vào `LEXICON.md` |
+| `4s-flow` | luồng hệ thống | Năm bước, hỏi dồn một chỗ, kỷ luật context, khi nào xoá context |
+| `4s-interview` | quy trình trước khi sửa | Hỏi cho ra chuyện: vòng, cây quyết định, chốt nghĩa vào `LEXICON.md` |
 | `4s-lexicon` | sửa `LEXICON.md` | Tạo và bảo trì từ điển dự án |
 | `4s-review` | báo cáo một lần | Review một thay đổi |
 | `4s-check` | báo cáo một lần | Kiểm cả repo, phép kiểm `C1`–`C8` |
@@ -69,10 +70,25 @@ Tắt trong một session: nói "stop 4s". Đổi cấp: `/4s lite`, `/4s ultra`
 
 Agent không được tự đoán rồi làm. Trước mỗi task code, `4s` chạy cổng `ASK`: gặp từ hiểu hai
 kiểu (`ASK-1`), không rõ hành vi (`ASK-2`), hay không rõ sửa chỗ nào (`ASK-3`) thì dừng, chạy
-`/4s-interview` để hỏi người đưa yêu cầu bằng 2–3 lựa chọn lấy từ chính code. Chốt xong thì
-nghĩa được ghi vào `LEXICON.md` mục 2 và mục 6, nên lần sau không ai phải hỏi lại câu đó.
+`/4s-interview` để hỏi bạn bằng 2–3 lựa chọn lấy từ chính code, mỗi câu kèm sẵn đề xuất để bạn
+gõ "ừ" là xong. Chốt xong thì nghĩa được ghi vào `LEXICON.md` mục 2 và mục 6.
 
 Đã hỏi mà chưa có câu trả lời thì **không sửa gì**. Không có đường "tự nêu giả định rồi vẫn làm".
+
+## Luồng năm bước
+
+`/4s-flow` cho biết đang ở bước nào:
+
+```
+1. HỎI  →  2. CHỐT  →  3. LÀM  →  4. KIỂM  →  5. GHI LẠI
+```
+
+**Hỏi dồn một chỗ:** mọi câu hỏi thuộc bước 1. Vào bước 3 là hết hỏi. Đang code mà thấy cần hỏi
+thì dừng, quay lại hỏi cho hết — mỗi câu đến muộn là một lần sửa lại code vừa viết.
+
+**Kỷ luật context:** giữ bước 1→3 trong một mạch (cái "vì sao" không đọc lại từ diff được). Ở
+ranh giới bước có năm lựa chọn, xét theo thứ tự: đi tiếp → xoá context → bàn giao → giao agent
+phụ → nén context. Nén là **cuối bảng**, không phải cái chọn đầu tiên.
 
 ## Báo lỗi thì chưa được sửa
 

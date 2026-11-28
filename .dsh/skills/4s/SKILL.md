@@ -19,15 +19,14 @@ Bật suốt session tới khi người dùng nói "stop 4s" hoặc "normal mode
 
 ## 0. Ba cổng trước khi sửa (`LEX`, `ASK`, `FIX`)
 
-Sửa code khi chưa hiểu đúng yêu cầu là việc đắt nhất: sai nghĩa thì phải viết lại, không phải
-sửa. Vì thế có ba cổng, chạy theo thứ tự, trước mọi task code.
+Ba cổng chạy theo thứ tự, trước mọi task code: sửa khi chưa hiểu đúng yêu cầu là việc đắt nhất.
 
 ### 0.1 Cổng từ điển (`LEX`)
 
-Đọc `LEXICON.md` ở gốc repo trước mọi task, kể cả task nhỏ. Chưa có file: dừng, chạy skill
+Đọc `LEXICON.md` ở gốc repo trước mọi task, kể cả task nhỏ. Chưa có file: dừng, chạy
 `4s-lexicon`, rồi mới làm. Gặp từ chưa có trong từ điển: thêm vào từ điển trước, code sau.
-Một từ chỉ có một nghĩa. Đây là ngoại lệ có chủ ý với tinh thần lười: hiểu sai nghĩa là lỗi
-đắt nhất, và viết ít code không chữa được nó.
+Một từ một nghĩa, một khái niệm một tên: hiểu sai nghĩa là lỗi đắt nhất, viết ít code không
+chữa được nó.
 
 ### 0.2 Cổng hỏi lại (`ASK`) — không tự hành động khi còn mơ hồ
 
@@ -47,6 +46,10 @@ Việc đã rõ thì làm luôn, không cần tuyên bố gì. Nhưng **đã h�
 sửa gì**: không tự tuyên bố "không có điểm mơ hồ" để đi tiếp, không nêu giả định rồi vẫn sửa.
 Người dùng nói rõ "làm đi, đừng hỏi" thì đó là duyệt.
 
+**Hỏi dồn một chỗ:** mọi câu hỏi thuộc cổng này. Vào lúc code là hết hỏi. Đang code mà thấy cần
+hỏi thì dừng, quay lại hỏi cho hết rồi mới code tiếp — câu đến muộn là một lần sửa lại code vừa
+viết. Chi tiết ở `4s-flow` mục 2 và `4s-interview` mục 1.
+
 ### 0.3 Báo lỗi: chẩn đoán trước, sửa sau (`FIX`)
 
 Người dùng báo lỗi thì mặc định là **chưa được sửa**. Lượt đó chỉ đọc code và trình bày:
@@ -56,14 +59,13 @@ Người dùng báo lỗi thì mặc định là **chưa được sửa**. Lư�
 3. **Từ điển** — bug này có phải vì hiểu khác nghĩa hay khác đơn vị không (`4s-lexicon` mục 8).
 4. **Chờ duyệt** — sửa code và `LEXICON.md` chỉ sau khi người dùng duyệt.
 
-Trình bày xong là dừng: không tiện tay sửa luôn, không thông báo việc đã tự quyết như thể đã xong.
+Trình bày xong là dừng: không tiện tay sửa luôn, không thông báo như thể đã xong.
 
 ## 1. Trước khi viết
 
 Đọc task và code nó chạm tới. Liệt kê mọi chỗ thay đổi phải với tới: caller, test, fixture,
-config, export. Đó là scope. Feature thêm vào không phải scope. Kiểm thay đổi có thể làm hỏng
-gì: dữ liệu bị mất hoặc lộ, caller ngừng chạy. Grep xem việc này đã có ở đâu chưa (`S2`)
-trước khi tạo file mới.
+config, export — đó là scope; feature thêm vào không phải scope. Kiểm thay đổi có thể làm hỏng
+gì: mất hoặc lộ dữ liệu, caller ngừng chạy. Grep xem việc này đã có ở đâu chưa (`S2`).
 
 ## 2. Thang chọn giải pháp
 
@@ -181,14 +183,14 @@ Bug UI hoặc layout: làm theo skill `4s-ui-debug`, không kết luận từ co
 | **full** | Mặc định. Các luật trên là luật cứng: vi phạm phải sửa hoặc khai `SC` |
 | **ultra** | Như full, thêm: trước khi làm, phản biện phần yêu cầu không có nhu cầu thật; không viết code vi phạm khi người dùng chưa đồng ý `SC` |
 
-Cổng từ điển (mục 0.1) và cổng hỏi lại (mục 0.2) áp dụng ở cả ba cấp: cấp độ đổi mức kỷ luật
-của code, không đổi việc phải hiểu đúng yêu cầu trước. Bật cùng ponytail thì không xung đột: hai
-bộ chung tinh thần lười, riêng chuyện tách gom file thì theo 4S.
+Ba cổng ở mục 0 áp dụng ở cả ba cấp: cấp độ đổi mức kỷ luật của code, không đổi việc phải hiểu
+đúng yêu cầu trước.
 
 ## 10. Skill liên quan
 
 | Cần | Skill |
 |:---|:---|
+| Biết đang ở bước nào, khi nào xoá context | `4s-flow` |
 | Phỏng vấn yêu cầu, chốt nghĩa trước khi sửa | `4s-interview` |
 | Tạo, sửa từ điển dự án | `4s-lexicon` |
 | Review một thay đổi | `4s-review` |

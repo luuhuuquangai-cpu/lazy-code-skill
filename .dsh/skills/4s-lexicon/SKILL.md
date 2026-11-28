@@ -1,4 +1,4 @@
----
+﻿---
 name: 4s-lexicon
 description: >
   Tạo và bảo trì LEXICON.md ở gốc repo: từ điển chung viết bằng lời đời thường để người không
@@ -45,7 +45,12 @@ Review / kiểm repo
 **Luật cứng:** một từ chỉ được có **một** nghĩa. Hai nghĩa → phải tách thành hai từ khác nhau,
 không được dùng chung một từ với hai nghĩa. Đây là `S1` áp cho ngôn ngữ.
 
-## 2. Mỗi mục từ có đúng 6 phần
+**Chiều ngược lại cũng là luật cứng:** một khái niệm chỉ được có **một** tên. Cùng một thứ mà
+lúc gọi `khách hàng`, lúc gọi `client`, lúc gọi `user`, lúc gọi `account` là bốn cái tên cho một
+thứ — code sẽ có bốn chỗ xử lý cùng một việc. Chọn một tên, ghi các tên còn lại vào **Tránh
+dùng**. Đây là `S2` áp cho ngôn ngữ: một khái niệm nằm ở một tên.
+
+## 2. Mỗi mục từ có đúng 7 phần
 
 Thiếu phần nào thì mục từ đó chưa dùng được:
 
@@ -55,6 +60,7 @@ Thiếu phần nào thì mục từ đó chưa dùng được:
 | **Nghĩa** | là cái gì | **một câu** tiếng Việt đời thường, không viết tắt, không dùng từ kỹ thuật |
 | **Ví dụ** | trông thế nào trong thực tế | một tình huống cụ thể, có con số hoặc tên thật |
 | **KHÔNG phải** | không phải cái gì | phần quan trọng nhất — ranh giới với từ gần nghĩa |
+| **Tránh dùng** | đừng gọi nó bằng từ nào khác | các từ đồng nghĩa bị loại, để một khái niệm chỉ có một tên |
 | **Nơi ở** | tìm ở đâu | file / bảng / topic nào (nối `S2`) |
 | **Chủ** | ai chốt nghĩa này | tên người + ngày, để biết hỏi ai khi nghi ngờ |
 
@@ -76,6 +82,11 @@ Hỏi ba câu. Trượt một câu là phải viết lại, không phải viết
 ## 4. Quy tắc viết cho người không biết code
 
 - Một câu một ý. Câu dài thứ hai thì xuống dòng, không nối bằng dấu phẩy.
+- **Định nghĩa cái nó LÀ, không phải cái nó LÀM.** "Một lần khách đặt mua" là đúng; "dùng để
+  lưu thông tin đơn" là sai — cái sau là mô tả chức năng, không phải định nghĩa.
+- **Chỉ thuật ngữ riêng của dự án.** `timeout`, `error`, `cache`, `utils` là khái niệm lập trình
+  chung, không vào từ điển dù dự án dùng nhiều. Trước khi thêm một từ, hỏi: đây là khái niệm riêng
+  của dự án này, hay khái niệm chung ai cũng biết? Chỉ cái đầu mới vào.
 - Không viết tắt trong lần xuất hiện đầu: `API`, `DB`, `MQTT`, `CRUD` → viết rõ rồi mới viết tắt.
 - Không dùng "v.v.", "và tương tự", "như trên": người đọc không tự suy ra được, và agent sẽ tự
   suy ra theo kiểu khác.
@@ -85,68 +96,8 @@ Hỏi ba câu. Trượt một câu là phải viết lại, không phải viết
 
 ## 5. Mẫu `LEXICON.md`
 
-Sao nguyên khối dưới đây vào `LEXICON.md`, xoá dòng ví dụ khi đã điền thật.
-
-```markdown
-# LEXICON — Từ điển dự án <tên>
-
-> Đọc file này TRƯỚC khi viết code. Gặp từ chưa có → thêm vào đây trước, code sau.
-> Một từ = một nghĩa. Không cần biết code vẫn đọc hiểu file này.
-> Cập nhật lần cuối: <YYYY-MM-DD>, bởi <tên>.
-
-## 1. Cách đọc file này (60 giây)
-
-| Bạn cần | Đọc phần |
-|:---|:---|
-| hiểu một từ | **Nghĩa** và **Ví dụ** |
-| biết một thứ có tính là từ đó không | **KHÔNG phải** — đây là phần trả lời |
-| tìm code liên quan | **Nơi ở** |
-| không đồng ý với nghĩa | **Chủ** — hỏi đúng người đó |
-| biết nghĩa này do ai chốt, khi nào | mục 6 |
-
-Mục 6 là lịch sử. Không sửa dòng cũ, chỉ thêm dòng mới.
-
-## 2. Từ vựng lõi (dùng ở mọi nơi)
-
-### Đơn hàng (`order`)
-- **Nghĩa:** một lần khách đặt mua, gồm nhiều món, có một mã để tra cứu và một trạng thái.
-- **Ví dụ:** khách mua 2 bao gạo và 1 chai nước trong cùng một lần bấm "Đặt hàng" — đó là
-  **một** đơn hàng, không phải ba.
-- **KHÔNG phải:** không phải một món bên trong đơn (đó là `order_item`); không phải giỏ hàng
-  khách đang chọn dở rồi bỏ đi (đó là `cart`).
-- **Nơi ở:** bảng `orders`, `src/features/orders/`.
-- **Chủ:** <tên>, <YYYY-MM-DD>.
-
-## 3. Tầng kiến trúc (tên thật của dự án)
-| Tầng 4S | Tên trong dự án | Thư mục | Được import gì |
-|:---|:---|:---|:---|
-| UI | `<components>` | `<src/components>` | Controller |
-| Controller | `<handlers>` | `<src/api>` | Use Case, Infrastructure |
-| Use Case | `<services>` | `<src/services>` | Entity |
-| Entity | `<domain>` | `<src/domain>` | không gì cả |
-| Infrastructure | `<adapters>` | `<src/db>` | Entity |
-
-## 4. Bản đồ việc → nơi ở (nối `S2`)
-| Việc | File duy nhất | Ghi chú |
-|:---|:---|:---|
-| thêm thiết bị | `src/features/devices/them_thiet_bi.js` | |
-
-## 5. Từ bị CẤM dùng
-| Không dùng | Dùng thay bằng | Vì sao |
-|:---|:---|:---|
-| `data`, `info`, `temp`, `utils`, `common` | tên đúng việc | không nói được nó là gì |
-
-## 6. Quyết định nghĩa (bất biến, có ngày)
-| Ngày | Từ | Chốt nghĩa | Chủ | Lý do |
-|:---|:---|:---|:---|:---|
-
-## 7. Đơn vị và định dạng
-| Nhóm | Quy ước |
-|:---|:---|
-| Thời gian | <lưu UTC hay giờ địa phương, định dạng, ai đổi múi giờ> |
-| Tiền | <đơn vị nhỏ nhất, làm tròn kiểu gì> |
-| Đại lượng đo | <đơn vị SI, độ chính xác> |
-```
+Sao nguyên khối mẫu ở [LEXICON.template.md](./LEXICON.template.md) vào `LEXICON.md` ở gốc
+repo, xoá dòng ví dụ khi đã điền thật. Mẫu để riêng file để luật ở đây không phình quá `L200`.
 
 ## 6. Cách điền lần đầu
 

@@ -24,7 +24,8 @@ Cấp giữ nguyên tới khi đổi hoặc hết session. Cổng `LEXICON.md` �
 | Skill | Lệnh | Việc |
 |:---|:---|:---|
 | **4s** | `/4s` | Chế độ code: ít code mới nhất, theo bốn luật, câu trả lời nêu việc đã bỏ qua và rủi ro |
-| **4s-interview** | `/4s-interview` | Phỏng vấn yêu cầu trước khi sửa: hỏi chỗ còn mơ hồ, chốt nghĩa, ghi vào `LEXICON.md` |
+| **4s-flow** | `/4s-flow` | Luồng năm bước, hỏi dồn một chỗ, kỷ luật context và năm lựa chọn ở ranh giới bước |
+| **4s-interview** | `/4s-interview` | Hỏi cho ra chuyện: hỏi theo vòng và theo cây quyết định, chốt nghĩa vào `LEXICON.md` |
 | **4s-lexicon** | `/4s-lexicon` | Tạo và sửa `LEXICON.md`, từ điển chung viết cho người không biết code cũng hiểu |
 | **4s-review** | `/4s-review` | Review một thay đổi theo 4S, đánh số phát hiện |
 | **4s-check** | `/4s-check` | Kiểm cả repo theo 4S, phép kiểm `C1`–`C8` |
@@ -42,13 +43,16 @@ Cấp giữ nguyên tới khi đổi hoặc hết session. Cổng `LEXICON.md` �
 | `S4` | Số Danh: log lỗi và `catch` kèm `[module.ham]` |
 | `L200` `L30` | File ≤ 200 dòng, hàm ≤ 30 dòng |
 | `LEX` | Từ điển dự án `LEXICON.md` |
-| `ASK` | Cổng hỏi lại trước khi sửa: `ASK-1` nghĩa từ, `ASK-2` ranh giới hành vi, `ASK-3` phạm vi nơi sửa |
+| `ASK` | Cổng hỏi lại: `ASK-1` nghĩa từ, `ASK-2` ranh giới hành vi, `ASK-3` phạm vi nơi sửa |
 | `FIX` | Cổng báo lỗi: chỉ chẩn đoán + đề xuất, chờ duyệt rồi mới sửa code hoặc `LEXICON.md` |
+| `FLOW` | Luồng năm bước: HỎI → CHỐT → LÀM → KIỂM → GHI LẠI |
+| `GATE` | Hỏi dồn một chỗ: mọi câu hỏi thuộc bước 1, vào bước 3 là hết hỏi |
+| `CTX` | Kỷ luật context: vùng còn sáng ~150k token, năm lựa chọn ở ranh giới bước |
 | `SC` | Vi phạm có khai báo bằng comment `shortcut:` |
 | `C1`–`C8` | Phép kiểm của `4s-check` |
 
-Thứ tự trước khi sửa: `LEX` (đọc từ điển) → `ASK` (hỏi chỗ mơ hồ) → ghi `LEXICON.md` → code.
-Người dùng báo lỗi: `FIX` (chẩn đoán) → chờ duyệt → sửa.
+Thứ tự trước khi sửa: `LEX` (đọc từ điển) → `ASK` (hỏi dồn một chỗ) → ghi `LEXICON.md` → code.
+Người dùng báo lỗi: `FIX` (chẩn đoán) → chờ duyệt → sửa. Trình tự đầy đủ ở `4s-flow`.
 
 Tầng: `UI → Controller → Use Case → Entity`, và `Controller → Infrastructure → Entity`.
 
